@@ -1,6 +1,6 @@
 name: dart_varuint_bitcoin
 description: This package uses it to encode/decode the number as bitcoin variable length integer.
-version: 1.0.2
+version: 1.0.3
 repository: https://github.com/dart-bitcoin-lib/dart-varuint-bitcoin
 homepage: https://github.com/dart-bitcoin-lib/dart-varuint-bitcoin
 
