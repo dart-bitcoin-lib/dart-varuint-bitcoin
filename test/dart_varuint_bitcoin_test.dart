@@ -16,8 +16,8 @@ void main() {
         expect(encoded.bytes, equals(fixture.hex!.length / 2));
       });
       test('Valid decode #${fixture.hex} (${fixture.dec!.toString()})', () {
-        final decoded = varuint.decode(
-            Uint8List.fromList(hex.decode(fixture.hex!)).buffer.asByteData());
+        final decoded =
+            varuint.decode(Uint8List.fromList(hex.decode(fixture.hex!)));
         expect(decoded.output, equals(fixture.dec));
         expect(decoded.bytes, equals(fixture.hex!.length / 2));
       });
@@ -44,15 +44,14 @@ void main() {
   }
 
   test('write to buffer with offset', () {
-    ByteData buffer = ByteData(2);
+    Uint8List buffer = Uint8List(2);
     final encoded = varuint.encode(0xfc, buffer, 1);
     expect(hex.encode(encoded.buffer.buffer.asUint8List()), equals('00fc'));
     expect(encoded.bytes, 1);
   });
 
   test('should be a buffer', () {
-    ByteData buffer =
-        Uint8List.fromList(List.from([0x00, 0xfc])).buffer.asByteData();
+    Uint8List buffer = Uint8List.fromList([0x00, 0xfc]);
     final decoded = varuint.decode(buffer, 1);
     expect(decoded.output, equals(0xfc));
     expect(decoded.bytes, 1);
