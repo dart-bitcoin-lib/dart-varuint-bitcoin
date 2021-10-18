@@ -99,7 +99,7 @@ _DecodeOutputModel decode(ByteData buffer, [int offset = 0]) {
 }
 
 /// Get encoding length of varuint
-encodingLength(int number) {
+int encodingLength(int number) {
   _checkUInt53(number);
 
   return (number < 0xfd
